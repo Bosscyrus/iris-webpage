@@ -1,0 +1,26 @@
+{% extends "machine.html" %}
+{% block content %}
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+{{ super() }}
+<script>
+	//with jquery
+	$(document).ready(function(){
+		$('select').formselect();
+	});
+</script>
+
+
+	
+
+
+
+{% endblock %}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	.input-field{
+		color: black;
+	}
+	.len{
+		background-color: orange
+	}
+	.clf{
+		background-color: light blue;
+	}
+	.btn{
+		background-color: grey;
+	}
+	div {
+    border-radius: 5px;
+    background-color: violet;
+    padding: 40px;
+    text-align: center;
+}
+
+	</style>
+	<title>iris</title>
+</head>
+<body>
+	<div class="showcase container purplr lighten-3">
+	<div class="row">
+		<div class="col 12 m10 offset-ml center">
+			<h1>iris preictor</h1>
+			<p>ML</p>
+			<a href="{{url_for('index')}}" >Reset</a>
+
+			<a href="{{url_for('index')}}" >view data</a>
+
+		</div>
+	</div>
+</div>
+
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+
+<p id="demo"></p>
+<section>
+	<div class="btn">
+		<form method="POST" action="{{url_for('analyze')}}">
+			<div class="input-field">
+				<input type="range" id="sepal_lengthInput" min="0" max="10" step="0.1" value="0" name="sepal_length">
+				<label>sepal_length</label>
+				<input type="range" id="sepal_widthInput" min="2" max="5" step="0.1" value="0" name="sepal_width">
+				<label>sepal_width</label>
+				<input type="range" id="petal_lengthInput" min="0" max="7" step="0.1" value="0" name="petal_length">
+				<label>petal_length</label>
+				<input type="range" id="petal_widthInput" min="0" max="3" step="0.1" value="0" name="petal_width">
+				<label>petal_width</label>
+				<div class="bvn">
+					<select id="role" name="model_choice">
+						<option value="disabled selected"> select model</option>
+						<option value="logmodel">logistic regression</option>
+						<option value="knnmodel">k-nearest model</option>
+					</select>
+					<label for="role">select model</label>
+				</div>
+				<input type="submit" name="predict" class="btn">
+				<input type="reset" name="clear" class="btn">
+			</div>
+			<!--value state the location were ur range starts showing from on ur web page-->
+			<input type="submit" value="submit" class="clf">
+			
+		</form>
+	</div>
+	<div class="len">
+		<p>sepal_length:</p>
+		{{ sepal_length }}
+		<p>sepal_width:</p>
+		{{ sepal_width }}
+		<p>petal_length:</p>
+		{{ petal_length }}
+		<p>petal_width:</p>
+		{{ petal_width }}
+		using {{ model_selected }} on {{ clean_data }}
+	</div>
+</section>
+<div>
+	<h5>PREDICTION</h5>
+	<div class="" role="alert">
+		<p>Prediction result: {{black}}</p>
+	</div>
+	<div class="">
+		{% if result == 1 %}
+		<img src="static/423562-PDLPUR-195.jpg" width="200px" height="200px">
+
+		{% elif result == 0 %}
+		<img src="static/iris_setosa.jpg" width="200px" height="200px">
+
+		{% elif result == 2 %}
+		<img src="static/iris_verginica.jpg" width="200px" height="200px">
+
+		{% else %}
+		<p></p>
+
+		{% endif %}
+	</div>
+
+</div>
+
+
+</body>
+</html>
